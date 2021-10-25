@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p>{{ question.question }} </p>
+
+    <form action="/answer" method="POST">  <!-- Answering the question should fire off a POST request to /answer with the answer the user selected -->
+        {% for choice in question.choices %}
+        <p> 
+            <input type="radio" id="choice" name="answer" value="{{ choice }}"> 
+            {{ choice }} 
+        </p>
+        {% endfor %}
+        <button type="submit">Submit Question</button>
+    </form>
+
+{% endblock %}
